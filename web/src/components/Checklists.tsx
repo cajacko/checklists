@@ -2,7 +2,6 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
-import FormGroup from "@material-ui/core/FormGroup";
 import { useHistory } from "react-router-dom";
 
 function Checklists(props: { orgId: string }) {
@@ -30,7 +29,7 @@ function Checklists(props: { orgId: string }) {
       setNewChecklistValue("");
       history.push(`/checklist/${orgId}/${newChecklistValue}`);
     },
-    [newChecklistValue, history, orgId]
+    [newChecklistValue, history, orgId, isDisabled]
   );
 
   return (
