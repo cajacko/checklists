@@ -13,7 +13,7 @@ function App() {
         <Route path="/" exact>
           <Typography>Home</Typography>
         </Route>
-        <Route path="/:orgId">
+        <Route path="/checklist/:orgId">
           <Route>
             {({ match }) => (
               <Typography>Organisation: {match?.params.orgId}</Typography>
@@ -21,7 +21,7 @@ function App() {
           </Route>
 
           <Switch>
-            <Route path="/:orgId/:checklistId">
+            <Route path="/checklist/:orgId/:checklistId">
               <Route>
                 {({ match }) => (
                   <Typography>
@@ -30,7 +30,7 @@ function App() {
                 )}
               </Route>
               <Switch>
-                <Route path="/:orgId/:checklistId/*/items">
+                <Route path="/checklist/:orgId/:checklistId/*/items">
                   {({ match }) =>
                     match ? (
                       <ChecklistItems
@@ -45,7 +45,7 @@ function App() {
                   }
                 </Route>
 
-                <Route path="/:orgId/:checklistId/items">
+                <Route path="/checklist/:orgId/:checklistId/items">
                   {({ match }) =>
                     match ? (
                       <ChecklistItems
@@ -59,7 +59,7 @@ function App() {
                   }
                 </Route>
 
-                <Route path="/:orgId/:checklistId">
+                <Route path="/checklist/:orgId/:checklistId">
                   {({ match }) =>
                     match ? (
                       <Checklist
@@ -74,7 +74,7 @@ function App() {
               </Switch>
             </Route>
 
-            <Route path="/:orgId">
+            <Route path="/checklist/:orgId">
               {({ match }) =>
                 match ? (
                   <Checklists orgId={match.params.orgId} />
